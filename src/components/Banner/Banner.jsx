@@ -10,7 +10,9 @@ function Banner() {
     useEffect(() => {
         instance.get(trendingMovieEndpoint).then((response) => {
             console.log(response.data.results[0])
-            setMovie(response.data.results[4])
+            const results = response.data.results;
+            const ramdomindex = Math.floor(Math.random()* results.length);
+            setMovie(response.data.results[ramdomindex])
         })
     }, [])
 
